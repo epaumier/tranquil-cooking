@@ -2,6 +2,8 @@
 
 ## About Tranquil Cooking
 
+![](./public/teaser.gif)
+
 Tranquil is a web application which allows you to quickly create your own recipes and make them available to your friends.
 
 It is still in development, and will soon be published online.
