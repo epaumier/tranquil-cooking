@@ -4,11 +4,10 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import VueFuse from 'vue-fuse'
 require('./bootstrap');
 
 window.Vue = require('vue');
-Vue.use(VueFuse)
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
