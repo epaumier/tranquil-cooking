@@ -2,15 +2,6 @@
 
 use Illuminate\Support\Str;
 
-
-$url = parse_url(getenv("DATABASE_URL"));
-
-$host = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
-
-
 return [
 
     /*
@@ -24,9 +15,8 @@ return [
     |
     */
 
-    // 'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => 'pgsql',
-
+    'default' => env('DB_CONNECTION', 'mysql'),
+    // 'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +44,7 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysqldev' => [
+        'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -62,26 +52,6 @@ return [
             'database' => env('DB_DATABASE', 'quickRecipe'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', '[password]'),
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
-        ],
-
-        'mysqlprod' => [
-            'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'https://phpmyadmin.cluster014.hosting.ovh.net/db_structure.php?server=1&db=paumieresql'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'paumieresql'),
-            'username' => env('DB_USERNAME', 'paumieresql'),
-            'password' => env('DB_PASSWORD', '8qCjl8vM5TB'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -109,16 +79,16 @@ return [
             'sslmode' => 'prefer',
         ],
 
-        'pgsql' => array(
-            'driver'   => 'pgsql',
-            'host'     => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
-            'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
-        ),
+        // 'pgsql' => array(
+        //     'driver'   => 'pgsql',
+        //     'host'     => $host,
+        //     'database' => $database,
+        //     'username' => $username,
+        //     'password' => $password,
+        //     'charset'  => 'utf8',
+        //     'prefix'   => '',
+        //     'schema'   => 'public',
+        // ),
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
